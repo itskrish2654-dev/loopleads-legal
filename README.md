@@ -1,27 +1,39 @@
-# LoopLeads Legal Pages — GitHub Pages starter kit
+# LoopLeads legal pages
 
-## Before publishing — REQUIRED
+Public legal pages for the current LoopLeads Instagram automation application:
 
-1. The public customer-support/privacy email is configured in both HTML pages as **itskrish2654@gmail.com**. This address will be visible to anyone on the internet.
-2. Read the policies to ensure they accurately describe your actual hosting, retention, support, and deletion process. These pages reflect the October 2026 **single-account local LoopLeads MVP** reviewed for this kit, not a production multi-customer SaaS.
-3. Never upload the LoopLeads backend, `.env`, Instagram access token, Meta App Secret, or SQLite user database into this public repository.
+- Privacy Policy: https://itskrish2654-dev.github.io/loopleads-legal/
+- Data Deletion Instructions: https://itskrish2654-dev.github.io/loopleads-legal/data-deletion.html
+- Terms of Service: https://itskrish2654-dev.github.io/loopleads-legal/terms.html
 
-## Publish on GitHub Pages for free
+Last revised: 29 October 2026.
 
-1. Sign in to GitHub and create a **public** repository called `loopleads-legal` at https://github.com/new. Create it with a README (or an empty repo).
-2. Add the three website files to the **root** of the repository: `index.html`, `data-deletion.html`, and `.nojekyll` (hidden `.nojekyll` is optional).
-3. In the repository, open **Settings > Pages**.
-4. Under **Build and deployment > Source**, select **Deploy from a branch**.
-5. Select branch **main**, folder **/(root)** and click **Save**.
-6. Wait for the Pages deployment to complete, then verify both URLs in an incognito browser:
-   - Privacy Policy: `https://YOUR_GITHUB_USERNAME.github.io/loopleads-legal/`
-   - Data deletion: `https://YOUR_GITHUB_USERNAME.github.io/loopleads-legal/data-deletion.html`
-7. In Meta Developers > LoopLeads > App settings > Basic, paste the privacy URL in **Privacy Policy URL** and (if required) data-deletion URL in **User Data Deletion / Data Deletion Instructions URL**. Save changes.
+## Product scope covered
 
-Note: For GitHub Free, GitHub Pages publishing needs a **public** repository. The website and repository can be viewed by anyone. The URLs above are examples, not live until you enable Pages.
+These pages describe the current multi-account early-access application, not the original single-account SQLite coaching pilot. LoopLeads uses authorized Instagram APIs and webhooks, PostgreSQL on cloud infrastructure, connected-account access tokens, comment and message records, optional lead collection, and account-level data export/deletion controls.
 
-## Policy-to-code accuracy notes
+## Publishing via GitHub Pages
 
-The current LoopLeads MVP stores `comments`, `leads`, `messages`, and `events` tables in SQLite. There is no automatic retention expiry, user self-service deletion, or external billing. The `STOP` keyword sets a lead's opt-out flag but does not delete their previous records. Handle verified deletion requests manually, and implement a reliable deletion/export/retention workflow before public customer launch.
+Host the three HTML files at the root of the public `loopleads-legal` repository on the `main` branch. In Settings > Pages, use the `main` branch and `/(root)` folder. GitHub Pages publishes the static HTML; no server secrets, backend source, access tokens, customer data, or `.env` files belong in this repository.
 
-These files are a product-specific starting draft, not a substitute for review by a legal/privacy professional.
+## Before Meta App Review or public launch
+
+1. Confirm the public contact email `itskrish2654@gmail.com` is monitored and is the address you wish to use publicly.
+2. Confirm the operator's correct legal identity/contact particulars with a legal professional; the current pages identify the product as LoopLeads operated from India without inventing a registered company.
+3. Verify production deletion/retention and backups are consistent with the descriptions, including any changes made after V3.4.0.
+4. Verify the app's Privacy and Data Deletion links point to the final public URLs; set the Terms URL in Meta where available.
+5. Visit all three URLs in an incognito window and on a phone, and verify internal links.
+6. Have a qualified privacy/legal advisor review these pages for the countries and customer groups you will serve. Publishing these documents alone does not establish regulatory compliance.
+
+## Product-code accuracy notes (V3.4.0)
+
+- Contact-level deletion and account disconnect exist in the app.
+- Account-owner exports are available as JSON.
+- Captured lead email and phone data and Instagram access tokens are encrypted in the application database.
+- Successful webhook processing clears original raw payload from completed events; maintenance removes completed event rows older than about 30 days.
+- Leads/messages do not have an automatic universal expiry.
+- There is no complete self-service deletion button for a LoopLeads login account. Use support requests for those cases.
+- Backup-specific expiry periods have not been verified; do not promise exact backup erasure dates.
+- Paid subscription/checkout was not confirmed in the V3.4.0 package.
+
+These pages are editorial legal drafts, not professional legal advice.
